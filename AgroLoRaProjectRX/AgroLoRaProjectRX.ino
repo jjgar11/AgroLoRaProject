@@ -1,7 +1,8 @@
-#include "config.h"
-#include "display/oled_display.h"
-#include "lora/lora_comm.h"
-#include "utils.h"
+#include "src/config.h"
+#include "src/display/oled_display.h"
+#include "src/lora/lora_comm.h"
+#include "utils/utils.h"
+#include <Wire.h>
 
 void setup() {
   Serial.begin(115200);

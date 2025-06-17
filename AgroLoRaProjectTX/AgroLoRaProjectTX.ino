@@ -1,9 +1,10 @@
-#include "config.h"
-#include "sensors/bme280_sensor.h"
-#include "moisture/sen0193.h"
-#include "display/oled_display.h"
-#include "lora/lora_comm.h"
+#include "src/config.h"
+#include "src/sensors/bme280_sensor.h"
+#include "src/moisture/sen0193.h"
+#include "src/display/oled_display.h"
+#include "src/lora/lora_comm.h"
 #include <esp_sleep.h>
+#include <Wire.h>
 
 RTC_DATA_ATTR int txCounter = 0;
 

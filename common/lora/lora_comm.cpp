@@ -1,6 +1,7 @@
-#include "lora_comm.h"
+#include <Arduino.h>
 #include <SPI.h>
 #include <LoRa.h>
+#include "lora_comm.h"
 #include "../config.h"
 
 String lastPacket = "";

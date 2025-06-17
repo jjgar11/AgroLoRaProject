@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "sen0193.h"
 #include "../config.h"
 

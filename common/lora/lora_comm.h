@@ -1,5 +1,5 @@
 #pragma once
 
 void initLoRa();
-void sendLoRaPacket(String data);
+void sendLoRaPacket(const String& data);
 String receiveLoRaPacket();

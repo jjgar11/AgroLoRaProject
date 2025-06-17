@@ -2,6 +2,8 @@
 
 #define BME280_I2C_ADDRESS  0x76
 
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
 #define OLED_I2C_ADDRESS    0x3C
 
 #define MOISTURE_PIN        34
