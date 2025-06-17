@@ -9,3 +9,5 @@
 #define LORA_CS_PIN         18
 #define LORA_RST_PIN        14
 #define LORA_IRQ_PIN        26
+
+#define LORA_FREQ           915E6
