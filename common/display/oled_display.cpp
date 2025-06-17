@@ -15,12 +15,12 @@ void initOLED() {
   display.display();
 }
 
-void displayData(float temp, float hum, float pres, int moisture) {
+void displayData(int counter, float temp, float hum, float pres, int moisture) {
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0, 0);
-  display.printf("Temp: %.1f C\nHum: %.1f %%\nPres: %.1f hPa\nSoil: %d",
-                 temp, hum, pres, moisture);
+  display.printf("ID: %d\nTemp: %.1f C\nHum: %.1f %%\nPres: %.1f hPa\nSoil: %d",
+                 counter, temp, hum, pres, moisture);
   display.display();
 }

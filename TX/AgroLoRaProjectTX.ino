@@ -7,6 +7,7 @@
 void setup() {
   Serial.begin(115200);
   Wire.begin();
+
   initBME280();
   initSoilSensor();
   initOLED();
@@ -22,7 +23,8 @@ void loop() {
   String packet = String(millis()) + "," + String(t) + "," + String(h) + "," + String(p) + "," + String(m);
   sendLoRaPacket(packet);
 
-  displayData(t, h, p, m);
+  displayData(txCounter, t, h, p, m);
+  Serial.println(packet);
 
-  delay(5000);
+  delay(TIME_SLEEP);
 }

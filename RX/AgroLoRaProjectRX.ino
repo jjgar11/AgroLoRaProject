@@ -13,12 +13,12 @@ void setup() {
 void loop() {
   String packet = receiveLoRaPacket();
   if (packet != "") {
-    unsigned long ts;
+    int counter;
     float t, h, p;
     int m;
 
-    if (parsePacketData(packet, ts, t, h, p, m)) {
-      displayData(ts, t, h, p, m);
+    if (parsePacketData(packet, counter, t, h, p, m)) {
+      displayData(counter, t, h, p, m);
       Serial.println(packet);
     }
   }

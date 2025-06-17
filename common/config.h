@@ -11,3 +11,5 @@
 #define LORA_IRQ_PIN        26
 
 #define LORA_FREQ           915E6
+
+#define TIME_SLEEP          5000
