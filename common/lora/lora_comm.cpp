@@ -3,6 +3,8 @@
 #include <LoRa.h>
 #include "../config.h"
 
+String lastPacket = "";
+
 void initLoRa() {
   LoRa.setPins(LORA_CS_PIN, LORA_RST_PIN, LORA_IRQ_PIN);
   if (!LoRa.begin(LORA_FREQ)) {
@@ -12,7 +14,7 @@ void initLoRa() {
   Serial.println("LoRa inicializado correctamente.");
 }
 
-void sendLoRaPacket(String data) {
+void sendLoRaPacket(const String &data) {
   LoRa.beginPacket();
   LoRa.print(data);
   LoRa.endPacket();
@@ -20,10 +22,17 @@ void sendLoRaPacket(String data) {
 
 String receiveLoRaPacket() {
   int packetSize = LoRa.parsePacket();
-  if (packetSize == 0) return "";
-  String received = "";
-  while (LoRa.available()) {
-    received += (char) LoRa.read();
+  if (packetSize > 0) {
+    String incoming = "";
+    while (LoRa.available()) {
+      incoming += (char)LoRa.read();
+    }
+
+    // Evitar duplicados
+    if (incoming != lastPacket) {
+      lastPacket = incoming;
+      return incoming;
+    }
   }
-  return received;
+  return "";
 }

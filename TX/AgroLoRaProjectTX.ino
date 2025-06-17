@@ -19,7 +19,7 @@ void loop() {
   float p = getPressure();
   int m = readSoilMoisture();
 
-  String packet = String(t) + "," + String(h) + "," + String(p) + "," + String(m);
+  String packet = String(millis()) + "," + String(t) + "," + String(h) + "," + String(p) + "," + String(m);
   sendLoRaPacket(packet);
 
   displayData(t, h, p, m);
