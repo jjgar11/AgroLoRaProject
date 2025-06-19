@@ -1,0 +1,1 @@
+Servidor creado con Flask que recibe la informacion enviada por la ESP32 a traves del puerto 5000 en la ruta /data y la almacena en formato csv.

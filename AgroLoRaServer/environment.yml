@@ -1,0 +1,8 @@
+name: agrolora-server
+dependencies:
+  - python=3.11
+  - flask
+  - pandas
+  - pip
+  - pip:
+    - flask
