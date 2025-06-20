@@ -10,7 +10,7 @@ void setup() {
   Wire.begin();
   initOLED();
   initLoRa();
-  connectToWiFi(ssid, password);
+  connectToWiFi(WIFI_SSID, WIFI_PASS);
 }
 
 void loop() {
