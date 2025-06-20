@@ -1,7 +1,8 @@
 #include "src/config.h"
 #include "src/display/oled_display.h"
 #include "src/lora/lora_comm.h"
-#include "utils/utils.h"
+#include "src/http_client/sender.h"
+#include "src/utils/utils.h"
 #include <Wire.h>
 
 void setup() {
@@ -9,6 +10,7 @@ void setup() {
   Wire.begin();
   initOLED();
   initLoRa();
+  connectToWiFi(ssid, password);
 }
 
 void loop() {
@@ -21,6 +23,7 @@ void loop() {
     if (parsePacketData(packet, counter, t, h, p, m)) {
       displayData(counter, t, h, p, m);
       Serial.println(packet);
+      sendDataToServer(counter, t, h, p, m);
     }
   }
   delay(100);
