@@ -1,4 +1,4 @@
 __pycache__
 *.csv
 
-ESP32_code/common/config.h
+ESP32_code/common/private_keys.h

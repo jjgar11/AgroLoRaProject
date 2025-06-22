@@ -26,5 +26,5 @@ void loop() {
       sendDataToServer(counter, t, h, p, m);
     }
   }
-  delay(100);
+  delay(RX_TIME_SLEEP);
 }

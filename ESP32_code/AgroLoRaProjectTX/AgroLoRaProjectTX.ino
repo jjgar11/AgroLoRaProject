@@ -33,7 +33,7 @@ void setup() {
   Serial.println(packet);
 
   // Configurar tiempo de deep sleep (en microsegundos)
-  esp_sleep_enable_timer_wakeup(TIME_SLEEP * 1000);
+  esp_sleep_enable_timer_wakeup(TX_TIME_SLEEP * 1000);
   esp_deep_sleep_start();
 }
 

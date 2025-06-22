@@ -1,4 +1,5 @@
 #pragma once
+#include "private_keys.h"
 
 // ==================== Sensor BME280 ====================
 #define BME280_I2C_ADDRESS  0x76
@@ -18,9 +19,10 @@
 #define LORA_FREQ           915E6
 
 // ==================== Comunicación WiFi y Servidor ====================
-#define SERVER_URL          "http://<TU_IP_LOCAL>:5000/data"
-#define WIFI_SSID           "TU_SSID"
-#define WIFI_PASS           "TU_PASSWORD"
+#define SERVER_URL          PRIVATE_SERVER_URL
+#define WIFI_SSID           PRIVATE_WIFI_SSID
+#define WIFI_PASS           PRIVATE_WIFI_PASS
 
 // ==================== Parámetros del sistema ====================
-#define TIME_SLEEP          5000  // Delay entre lecturas (ms)
+#define TX_TIME_SLEEP       30000  // Delay entre envios (ms)
+#define RX_TIME_SLEEP       5000   // Delay entre lecturas (ms)
