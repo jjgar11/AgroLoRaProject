@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from .storage import save_to_csv
+from .storage import save_to_csv, get_last_records
 
 bp = Blueprint("routes", __name__)
 
@@ -13,3 +13,10 @@ def receive_data():
     
     save_to_csv(data)
     return jsonify({"status": "ok"}), 200
+
+@bp.route("/data", methods=["GET"])
+def view_data():
+    records = get_last_records(10)
+    if records is None:
+        return jsonify({"error": "No data available"}), 404
+    return jsonify(records)
