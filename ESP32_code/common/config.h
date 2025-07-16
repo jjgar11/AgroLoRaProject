@@ -14,8 +14,8 @@
 
 // ==================== Configuración LoRa ====================
 #define LORA_CS_PIN         5
-#define LORA_RST_PIN        25
-#define LORA_IRQ_PIN        26
+#define LORA_IRQ_PIN        25
+#define LORA_RST_PIN        26
 #define LORA_FREQ           433E6
 
 // ==================== Comunicación WiFi y Servidor ====================

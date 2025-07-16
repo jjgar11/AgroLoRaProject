@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sensor Data</title>
+  <style>
+    table { border-collapse: collapse; width: 100%; }
+    th, td { padding: 8px 12px; border: 1px solid #ccc; }
+    th { background-color: #f2f2f2; }
+    body { font-family: sans-serif; padding: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Datos del sensor</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th><th>Tiempo (ms)</th><th>Temp (°C)</th><th>Humedad (%)</th><th>Presión (hPa)</th><th>Humedad Suelo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.ts }}</td>
+        <td>{{ row.t }}</td>
+        <td>{{ row.h }}</td>
+        <td>{{ row.p }}</td>
+        <td>{{ row.m }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

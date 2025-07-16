@@ -21,3 +21,11 @@ def get_last_records(n=10):
         reader = csv.DictReader(f)
         data = list(reader)
         return data[-n:]
+
+def read_csv_data():
+    if not os.path.exists(FILEPATH):
+        return []
+
+    with open(FILEPATH, mode="r") as f:
+        reader = csv.DictReader(f)
+        return list(reader)

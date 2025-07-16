@@ -1,5 +1,5 @@
-from flask import Blueprint, request, jsonify
-from .storage import save_to_csv, get_last_records
+from flask import Blueprint, request, jsonify, render_template
+from .storage import save_to_csv, get_last_records, read_csv_data
 
 bp = Blueprint("routes", __name__)
 
@@ -20,3 +20,8 @@ def view_data():
     if records is None:
         return jsonify({"error": "No data available"}), 404
     return jsonify(records)
+
+@bp.route("/view", methods=["GET"])
+def view_data_html():
+    rows = read_csv_data()
+    return render_template("view_data.html", rows=rows)
