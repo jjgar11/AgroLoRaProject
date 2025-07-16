@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, render_template
 from .storage import save_to_csv, get_last_records, read_csv_data
+from .influx_writer import write_to_influx
 
 bp = Blueprint("routes", __name__)
 
@@ -10,8 +11,14 @@ def receive_data():
     required_fields = {"id", "ts", "t", "h", "p", "m"}
     if not data or not required_fields.issubset(data):
         return jsonify({"error": "Datos incompletos"}), 400
-    
+
     save_to_csv(data)
+
+    try:
+        write_to_influx(data)
+    except Exception as e:
+        print(f"Error escribiendo en InfluxDB: {e}")
+
     return jsonify({"status": "ok"}), 200
 
 @bp.route("/data", methods=["GET"])
