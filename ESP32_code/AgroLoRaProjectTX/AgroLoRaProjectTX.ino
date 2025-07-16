@@ -27,12 +27,13 @@ void setup() {
   char packet[64];
   snprintf(packet, sizeof(packet), "%d,%.2f,%.2f,%.2f,%d", txCounter, t, h, p, m);
 
-  sendLoRaPacket(packet);
-
   displayData(txCounter, t, h, p, m);
   Serial.println(packet);
 
+  sendLoRaPacket(packet);
+
   // Configurar tiempo de deep sleep (en microsegundos)
+  Serial.println("Sleeping");
   esp_sleep_enable_timer_wakeup(TX_TIME_SLEEP * 1000);
   esp_deep_sleep_start();
 }

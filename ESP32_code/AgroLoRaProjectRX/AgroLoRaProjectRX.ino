@@ -8,23 +8,24 @@
 void setup() {
   Serial.begin(115200);
   Wire.begin();
+
   initOLED();
   initLoRa();
+
   connectToWiFi(WIFI_SSID, WIFI_PASS);
 }
 
 void loop() {
   String packet = receiveLoRaPacket();
   if (packet != "") {
+    Serial.println(packet);
     int counter;
     float t, h, p;
     int m;
 
     if (parsePacketData(packet, counter, t, h, p, m)) {
       displayData(counter, t, h, p, m);
-      Serial.println(packet);
       sendDataToServer(counter, t, h, p, m);
     }
   }
-  delay(RX_TIME_SLEEP);
 }

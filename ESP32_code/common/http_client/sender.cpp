@@ -1,5 +1,6 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
+#include <math.h>
 #include "sender.h"
 #include "../config.h"
 
@@ -19,12 +20,17 @@ void sendDataToServer(int counter, float t, float h, float p, int m) {
     http.begin(SERVER_URL);
     http.addHeader("Content-Type", "application/json");
 
-    String jsonPayload = String("{\"id\":") + counter +
-                     ",\"ts\":" + millis() +
-                     ",\"t\":" + t +
-                     ",\"h\":" + h +
-                     ",\"p\":" + p +
-                     ",\"m\":" + m + "}";
+    String jsonPayload = "{";
+    jsonPayload += "\"id\":" + String(counter) + ",";
+    jsonPayload += "\"ts\":" + String(millis()) + ",";
+    jsonPayload += "\"t\":" + formatFloatOrNull(t) + ",";
+    jsonPayload += "\"h\":" + formatFloatOrNull(h) + ",";
+    jsonPayload += "\"p\":" + formatFloatOrNull(p) + ",";
+    jsonPayload += "\"m\":" + String(m);
+    jsonPayload += "}";
+
+    Serial.println("Payload JSON:");
+    Serial.println(jsonPayload);
 
     int responseCode = http.POST(jsonPayload);
 
@@ -39,4 +45,8 @@ void sendDataToServer(int counter, float t, float h, float p, int m) {
   } else {
     Serial.println("WiFi desconectado");
   }
+}
+
+String formatFloatOrNull(float val) {
+  return isnan(val) ? "null" : String(val, 2);
 }

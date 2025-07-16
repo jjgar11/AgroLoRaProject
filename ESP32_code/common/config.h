@@ -13,10 +13,10 @@
 #define MOISTURE_PIN        34
 
 // ==================== Configuración LoRa ====================
-#define LORA_CS_PIN         18
-#define LORA_RST_PIN        14
+#define LORA_CS_PIN         5
+#define LORA_RST_PIN        25
 #define LORA_IRQ_PIN        26
-#define LORA_FREQ           915E6
+#define LORA_FREQ           433E6
 
 // ==================== Comunicación WiFi y Servidor ====================
 #define SERVER_URL          PRIVATE_SERVER_URL
@@ -24,5 +24,5 @@
 #define WIFI_PASS           PRIVATE_WIFI_PASS
 
 // ==================== Parámetros del sistema ====================
-#define TX_TIME_SLEEP       30000  // Delay entre envios (ms)
+#define TX_TIME_SLEEP       10000  // Delay entre envios (ms)
 #define RX_TIME_SLEEP       5000   // Delay entre lecturas (ms)
