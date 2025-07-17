@@ -5,3 +5,6 @@ __pycache__
 Views
 
 private_keys.h
+
+influxdb_data
+grafana_data
