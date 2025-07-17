@@ -5,13 +5,14 @@ services:
     ports:
       - "8086:8086"
     volumes:
-      - influxdb_data:/var/lib/influxdb2
+      - ./influxdb_data:/var/lib/influxdb2
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
       - DOCKER_INFLUXDB_INIT_PASSWORD=admin123
       - DOCKER_INFLUXDB_INIT_ORG=agrolora-org
       - DOCKER_INFLUXDB_INIT_BUCKET=agrolora-bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=agrotoken123
 
   grafana:
     image: grafana/grafana:latest
@@ -19,7 +20,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - grafana_data:/var/lib/grafana
+      - ./grafana_data:/var/lib/grafana
     depends_on:
       - influxdb
 
