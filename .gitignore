@@ -1,4 +1,7 @@
 __pycache__
 *.csv
 
+*.zip
+Views
+
 private_keys.h

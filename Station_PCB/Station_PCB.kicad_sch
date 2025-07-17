@@ -1,0 +1,98 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "271bf7de-d7e3-4005-aae9-764829dfc76c")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 135.89 34.29)
+		(size 63.5 48.26)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "3ad789be-31fe-48dc-b262-8c72b4039f89")
+		(property "Sheetname" "TX_module"
+			(at 135.89 33.5784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TX_module.kicad_sch"
+			(at 135.89 83.1346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Station_PCB"
+				(path "/271bf7de-d7e3-4005-aae9-764829dfc76c"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 52.07 34.29)
+		(size 63.5 48.26)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "8b835ca2-905a-47fd-82b3-c74d635c572b")
+		(property "Sheetname" "RX_module"
+			(at 52.07 33.5784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "RX_module.kicad_sch"
+			(at 52.07 83.1346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Station_PCB"
+				(path "/271bf7de-d7e3-4005-aae9-764829dfc76c"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
