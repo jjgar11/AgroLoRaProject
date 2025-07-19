@@ -25,7 +25,13 @@ void loop() {
 
     if (parsePacketData(packet, counter, t, h, p, m)) {
       displayData(counter, t, h, p, m);
-      sendDataToServer(counter, t, h, p, m);
+      
+      if (checkWiFiStatus()) {
+        sendDataToServer(counter, t, h, p, m);
+      } else {
+        Serial.println("Sin conexión WiFi. Datos no enviados.");
+        tryReconnectWiFi();
+      }
     }
   }
 }

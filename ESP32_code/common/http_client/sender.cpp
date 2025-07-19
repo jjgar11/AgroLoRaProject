@@ -6,12 +6,18 @@
 
 void connectToWiFi(const char* ssid, const char* password) {
   WiFi.begin(ssid, password);
-  Serial.print("Conectando a WiFi");
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
+  Serial.println("Conectando a WiFi...");
+}
+
+void tryReconnectWiFi() {
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.println("Intentando reconectar a WiFi...");
+    WiFi.begin(WIFI_SSID, WIFI_PASS);
   }
-  Serial.println("\nWiFi conectado");
+}
+
+bool checkWiFiStatus() {
+    return (WiFi.status() == WL_CONNECTED);
 }
 
 void sendDataToServer(int counter, float t, float h, float p, int m) {
